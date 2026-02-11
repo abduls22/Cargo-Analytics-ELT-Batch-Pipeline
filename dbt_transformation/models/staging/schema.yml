@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_cargo_flights
+    description: "Staged OpenSky data with normalized callsigns and geospatial points."
+    columns:
+      - name: icao_24
+        description: "Unique ICAO 24-bit address of the aircraft transponder."
+        tests:
+          - not_null
+
+      - name: last_contact
+        description: "Unix timestamp (seconds) for the last update received from the aircraft."
+        tests:
+          - not_null
+          
+      - name: carrier_code
+        description: "The 3-digit IATA/ICAO code for the cargo carrier."
+        tests:
+          - not_null
