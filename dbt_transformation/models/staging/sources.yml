@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: opensky_raw
+    database: GCP-PROJECT-ID-GOES-HERE
+    schema: FIVETRAN-CONNECTION-NAME-GOES-HERE
+    tables:
+      - name: flight_records
