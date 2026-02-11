@@ -1,0 +1,23 @@
+name: 'cargo_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbt_transformation'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         
+  - "target"
+  - "dbt_packages"
+
+models:
+  cargo_analytics:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
