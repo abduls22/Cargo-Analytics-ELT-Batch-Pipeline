@@ -1,9 +1,7 @@
 # Cargo Logistics & Fleet Command Center
 
-&nbsp;
 ## An End-to-End Analytics Pipeline for Near-Real-Time Global Supply Chain Visibility
 
-&nbsp;
 ### Batch ELT Architecture: Fivetran | Airflow | dbt | BigQuery | Power BI
 
 #### This project implements a near-real-time (15-minute sync) batch ELT data pipeline that transforms raw aircraft state vectors from the OpenSky Network API into key logistics insights for global cargo carriers like FedEx, UPS, and DHL.
@@ -13,7 +11,7 @@
 #### Power BI Dashboard:
 <img width="1340" height="755" alt="dashboard" src="https://github.com/user-attachments/assets/45e060fc-df10-42cd-928a-d15c1c74fc26" />
 
-&nbsp;
+
 ### Pipeline Overview
 
 - **Ingestion:** Developed a custom Fivetran Connector using the Fivetran Connector SDK (Python), as no native OpenSky connector exists. This script manages state-based incremental data retrieval and schema mapping. To optimize downstream processing and minimize storage costs, the connector performs source-side filtering to capture only specific cargo carriers:
@@ -40,7 +38,7 @@
 
 - **Visualization:** Power BI provides an executive-level Command Center view. The dashboard uses the `is_latest_sync` flag to show a precise 1:1 snapshot of the most recent data batch.
 
-&nbsp;
+
 ### Data Modeling & Transformation
 
 1. **Staging Layer** (`stg_cargo_flights`)
@@ -67,7 +65,7 @@
 
    - **Sync Integrity:** The `is_latest_sync` column uses `MAX(processed_at) OVER ()` to identify the most recent batch regardless of transponder time drift.
 
-&nbsp;
+
 ### Dashboard Metrics
 
 The Power BI dashboard serves as a Logistics Command Center with the following visual components:
